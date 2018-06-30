@@ -2,14 +2,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.wildfly.swarm</groupId>
+
+  <parent>
+    <groupId>org.wildfly.swarm</groupId>
+    <artifactId>wf-swarm-examples</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+
   <artifactId>jaxrs</artifactId>
-  <name>WildFly Swarm Example</name>
+
+  <name>WildFly Swarm JAXRS Example</name>
   <version>1.0.0-SNAPSHOT</version>
+
   <packaging>war</packaging>
 
   <properties>
     <version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
+    <version.io.thorntail>2.0.0.Final</version.io.thorntail>
     <version.jboss.arquillian>1.2.1.Final</version.jboss.arquillian>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -19,11 +28,17 @@
 
   <dependencyManagement>
     <dependencies>
-      <dependency>
+      <!--<dependency>
         <groupId>org.wildfly.swarm</groupId>
         <artifactId>bom-all</artifactId>
         <version>${version.wildfly.swarm}</version>
         <scope>import</scope>
+        <type>pom</type>
+      </dependency>-->
+      <dependency>
+        <groupId>io.thorntail</groupId>
+        <artifactId>bom-all</artifactId>
+        <version>${version.io.thorntail}</version>
         <type>pom</type>
       </dependency>
       <dependency>
@@ -37,13 +52,12 @@
   </dependencyManagement>
 
   <build>
-    <finalName>demo</finalName>
+    <finalName>jaxrs-example</finalName>
     <plugins>
       <plugin>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>wildfly-swarm-plugin</artifactId>
-        <version>${version.wildfly.swarm}</version>
-
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
+        <version>${version.io.thorntail}</version>
         <executions>
           <execution>
             <goals>
@@ -63,15 +77,16 @@
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
-    <!-- WildFly Swarm Fractions -->
+    <!-- Thorntail Fractions -->
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>jaxrs</artifactId>
+      <version>${version.io.thorntail}</version>
     </dependency>
-    <!-- Brought in via WildFly Swarm `bom` -->
     <dependency>
-      <groupId>org.wildfly.swarm</groupId>
+      <groupId>io.thorntail</groupId>
       <artifactId>arquillian</artifactId>
+      <version>${version.io.thorntail}</version>
       <scope>test</scope>
     </dependency>
     <!-- Brought in via Arquillian BOM -->
