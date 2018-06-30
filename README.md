@@ -2,7 +2,15 @@
 
 Open the jaxrs project and run:
 
-`mvn wildfly-swarm:run`
+`mvn thorntail:run`
+
+Or alternatively build the root project
+
+`mvn clean install`
+
+and run:
+
+`java -jar jaxrs/target/jaxrs-example-thorntail.jar`
 
 Then go to:
 
