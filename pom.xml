@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.wildfly.swarm</groupId>
-    <artifactId>wf-swarm-examples</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+  <groupId>org.wildfly.swarm</groupId>
+  <artifactId>wf-swarm-examples</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
 
-    <name>Wildfly Swarm Examples Root</name>
-    <description>Wildfly Swarm Examples</description>
+  <name>Wildfly Swarm Examples Root</name>
+  <description>Wildfly Swarm Examples</description>
 
-    <packaging>pom</packaging>
+  <packaging>pom</packaging>
 
-    <modules>
-        <module>jaxrs</module>
-    </modules>
+  <properties>
+    <maven-compiler-plugin>3.5.1</maven-compiler-plugin>
+    <maven-surefire-plugin>2.18.1</maven-surefire-plugin>
+    <maven-war-plugin>2.6</maven-war-plugin>
+    <maven-clean-plugin>3.1.0</maven-clean-plugin>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surefire-plugin}</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>${maven-war-plugin}</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>${maven-clean-plugin}</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <module>jaxrs</module>
+  </modules>
 </project>
