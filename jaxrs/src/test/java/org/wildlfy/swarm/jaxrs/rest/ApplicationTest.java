@@ -14,6 +14,8 @@ import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.arquillian.CreateSwarm;
 import org.wildfly.swarm.jaxrs.JAXRSArchive;
@@ -23,23 +25,30 @@ import org.wildfly.swarm.jaxrs.rest.JAXRSConfiguration;
 @RunWith(Arquillian.class)
 public class ApplicationTest {
 
-    @Deployment
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApplicationTest.class);
+
+    private static final String CREATE_DEPLOYMENT = "=====Create deployment=====";
+
+    private static final String RETURN_DEPLOYMENT_ARCHIVE = "=====Return deployment archive: {}=====";
+
+    private static final String CREATE_SWARM = "=====Create swarm=====";
+
+    @Deployment(name = "arquillian_test_single_deployment")
     public static Archive createDeployment() {
-        System.out.println("==========Creating deployment==========");
+        LOGGER.info(CREATE_DEPLOYMENT);
         JAXRSArchive deployment = ShrinkWrap.create(JAXRSArchive.class);
 
         deployment.addClass(HelloWorldEndpoint.class);
         deployment.addClass(JAXRSConfiguration.class);
 
+        LOGGER.info(RETURN_DEPLOYMENT_ARCHIVE, deployment.getName());
         return deployment;
     }
 
     @CreateSwarm
     public static Swarm newContainer() throws Exception {
-        System.out.println("==========Creating swarm==========");
-        Swarm swarm = new Swarm();
-
-        return swarm;
+        LOGGER.info(CREATE_SWARM);
+        return new Swarm();
     }
 
     @Test
@@ -50,6 +59,10 @@ public class ApplicationTest {
         Response response = invocationBuilder.get();
 
         Assert.assertEquals(200, response.getStatus());
+    }
+
+    @Test
+    public void doNothing() {
     }
 
 }

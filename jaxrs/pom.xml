@@ -11,15 +11,15 @@
 
   <artifactId>jaxrs</artifactId>
 
-  <name>WildFly Swarm JAXRS Example</name>
+  <name>Thorntail JAXRS with Arquillian</name>
   <version>1.0.0-SNAPSHOT</version>
 
   <packaging>war</packaging>
 
   <properties>
-    <version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
     <version.io.thorntail>2.0.0.Final</version.io.thorntail>
     <version.jboss.arquillian>1.2.1.Final</version.jboss.arquillian>
+    <version.org.slf4j>1.7.25</version.org.slf4j>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -28,19 +28,13 @@
 
   <dependencyManagement>
     <dependencies>
-      <!--<dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>bom-all</artifactId>
-        <version>${version.wildfly.swarm}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>-->
       <dependency>
         <groupId>io.thorntail</groupId>
         <artifactId>bom-all</artifactId>
         <version>${version.io.thorntail}</version>
         <type>pom</type>
       </dependency>
+
       <dependency>
         <groupId>org.jboss.arquillian</groupId>
         <artifactId>arquillian-bom</artifactId>
@@ -77,6 +71,7 @@
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
+
     <!-- Thorntail Fractions -->
     <dependency>
       <groupId>io.thorntail</groupId>
@@ -89,10 +84,18 @@
       <version>${version.io.thorntail}</version>
       <scope>test</scope>
     </dependency>
+
     <!-- Brought in via Arquillian BOM -->
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
       <artifactId>arquillian-junit-container</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${version.org.slf4j}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
