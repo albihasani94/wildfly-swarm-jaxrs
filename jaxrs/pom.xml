@@ -11,27 +11,27 @@
 
   <artifactId>jaxrs</artifactId>
 
-  <name>Thorntail JAXRS with Arquillian</name>
+  <name>Wildfly Swarm JAXRS with Arquillian</name>
   <version>1.0.0-SNAPSHOT</version>
 
   <packaging>war</packaging>
 
   <properties>
-    <version.io.thorntail>2.0.0.Final</version.io.thorntail>
+    <version.wildfly.swarm>2018.5.0</version.wildfly.swarm>
     <version.jboss.arquillian>1.2.1.Final</version.jboss.arquillian>
     <version.org.slf4j>1.7.25</version.org.slf4j>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <failOnMissingWebXml>false</failOnMissingWebXml>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>io.thorntail</groupId>
+        <groupId>org.wildfly.swarm</groupId>
         <artifactId>bom-all</artifactId>
-        <version>${version.io.thorntail}</version>
+        <version>${version.wildfly.swarm}</version>
+        <scope>import</scope>
         <type>pom</type>
       </dependency>
 
@@ -49,9 +49,9 @@
     <finalName>jaxrs-example</finalName>
     <plugins>
       <plugin>
-        <groupId>io.thorntail</groupId>
-        <artifactId>thorntail-maven-plugin</artifactId>
-        <version>${version.io.thorntail}</version>
+        <groupId>org.wildfly.swarm</groupId>
+        <artifactId>wildfly-swarm-plugin</artifactId>
+        <version>${version.wildfly.swarm}</version>
         <executions>
           <execution>
             <goals>
@@ -59,6 +59,25 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.5.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.19.1</version>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.0.0</version>
       </plugin>
     </plugins>
   </build>
@@ -74,14 +93,12 @@
 
     <!-- Thorntail Fractions -->
     <dependency>
-      <groupId>io.thorntail</groupId>
+      <groupId>org.wildfly.swarm</groupId>
       <artifactId>jaxrs</artifactId>
-      <version>${version.io.thorntail}</version>
     </dependency>
     <dependency>
-      <groupId>io.thorntail</groupId>
+      <groupId>org.wildfly.swarm</groupId>
       <artifactId>arquillian</artifactId>
-      <version>${version.io.thorntail}</version>
       <scope>test</scope>
     </dependency>
 
