@@ -1,4 +1,4 @@
-package org.wildlfy.swarm.jaxrs.rest;
+package org.wildfly.swarm.jaxrs.rest;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -19,8 +19,6 @@ import org.slf4j.LoggerFactory;
 import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.arquillian.CreateSwarm;
 import org.wildfly.swarm.jaxrs.JAXRSArchive;
-import org.wildfly.swarm.jaxrs.rest.HelloWorldEndpoint;
-import org.wildfly.swarm.jaxrs.rest.JAXRSConfiguration;
 
 @RunWith(Arquillian.class)
 public class ApplicationTest {
