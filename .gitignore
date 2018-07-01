@@ -1,10 +1,10 @@
 # Eclipse
-/.settings
+.settings
 .classpath
 .project
 
 # Maven
-/target
+target
 
 # IntelliJ
 *.idea
