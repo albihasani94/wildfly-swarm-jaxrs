@@ -22,6 +22,10 @@
     <version.org.slf4j>1.7.25</version.org.slf4j>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <maven-compiler-plugin>3.5.1</maven-compiler-plugin>
+    <maven-surefire-plugin>2.18.1</maven-surefire-plugin>
+    <maven-war-plugin>2.6</maven-war-plugin>
+    <maven-clean-plugin>3.1.0</maven-clean-plugin>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -34,7 +38,6 @@
         <scope>import</scope>
         <type>pom</type>
       </dependency>
-
       <dependency>
         <groupId>org.jboss.arquillian</groupId>
         <artifactId>arquillian-bom</artifactId>
@@ -62,22 +65,22 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>${maven-compiler-plugin}</version>
       </plugin>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.19.1</version>
+        <version>${maven-surefire-plugin}</version>
       </plugin>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
+        <version>${maven-war-plugin}</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>${maven-clean-plugin}</version>
       </plugin>
     </plugins>
   </build>
@@ -90,8 +93,7 @@
       <version>7.0</version>
       <scope>provided</scope>
     </dependency>
-
-    <!-- Thorntail Fractions -->
+    <!-- Wildfly Swarm Fractions -->
     <dependency>
       <groupId>org.wildfly.swarm</groupId>
       <artifactId>jaxrs</artifactId>
@@ -101,14 +103,12 @@
       <artifactId>arquillian</artifactId>
       <scope>test</scope>
     </dependency>
-
     <!-- Brought in via Arquillian BOM -->
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
       <artifactId>arquillian-junit-container</artifactId>
       <scope>test</scope>
     </dependency>
-
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
