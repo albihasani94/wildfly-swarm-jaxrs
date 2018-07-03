@@ -1,4 +1,4 @@
-package org.wildfly.swarm.jaxrs.rest;
+package io.thorntail.javaee.jaxrs;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
