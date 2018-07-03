@@ -20,8 +20,7 @@
     <version.io.thorntail>2.0.0.Final</version.io.thorntail>
     <version.jboss.arquillian>1.4.0.Final</version.jboss.arquillian>
     <version.org.slf4j>1.7.25</version.org.slf4j>
-    <version.arquillian-drone>2.0.1.Final</version.arquillian-drone>
-    <version.arquillian.graphene>2.1.0.Final</version.arquillian.graphene>
+    <version.rest.assured>3.0.7</version.rest.assured>
   </properties>
 
   <dependencyManagement>
@@ -98,51 +97,8 @@
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
-      <version>3.0.7</version>
+      <version>${version.rest.assured}</version>
       <scope>test</scope>
     </dependency>
-
   </dependencies>
-
-  <profiles>
-    <profile>
-      <id>not-skipping-tests</id>
-      <activation>
-        <property>
-          <name>!skipTests</name>
-        </property>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>io.thorntail</groupId>
-              <artifactId>thorntail-maven-plugin</artifactId>
-              <version>${version.thorntail}</version>
-              <executions>
-                <execution>
-                  <id>start</id>
-                  <phase>pre-integration-test</phase>
-                  <goals>
-                    <goal>start</goal>
-                  </goals>
-                  <configuration>
-                    <stdoutFile>target/stdout.log</stdoutFile>
-                    <stderrFile>target/stderr.log</stderrFile>
-                  </configuration>
-                </execution>
-                <execution>
-                  <id>stop</id>
-                  <phase>post-integration-test</phase>
-                  <goals>
-                    <goal>stop</goal>
-                  </goals>
-                </execution>
-              </executions>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-    </profile>
-  </profiles>
 </project>

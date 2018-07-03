@@ -1,8 +1,7 @@
-package io.thorntail.javaee;
+package io.thorntail.javaee.cdi;
 
 import javax.inject.Inject;
 
-import io.thorntail.javaee.cdi.MyCDIBean;
 import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Assert;
 import org.junit.Test;
@@ -22,7 +21,7 @@ public class ApplicationTest {
 
     @Test
     public void testCDI() {
-        LOGGER.info("Testing CDI in a default deployment: JAR");
+        LOGGER.info("=====Testing CDI in a default deployment: JAR=====");
         Assert.assertEquals("Hello world!", myCDIBean.sayHelloWorld());
     }
 
