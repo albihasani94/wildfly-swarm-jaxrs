@@ -1,6 +1,6 @@
 # Build a webapp with Wildlfy Swarm (Thorntail)
 
-Open the javaee project and run:
+Open the jaxrs project and run:
 
 `mvn thorntail:run`
 
@@ -10,7 +10,7 @@ Or alternatively build the root project
 
 and run:
 
-`java -jar javaee/target/javaee-example-thorntail.jar`
+`java -jar jaxrs/target/jaxrs-example-thorntail.jar`
 
 Then go to:
 
