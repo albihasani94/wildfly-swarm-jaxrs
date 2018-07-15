@@ -1,0 +1,5 @@
+swarm:
+  logstash:
+    hostname: localhost
+    port: 8090
+    level: INFO

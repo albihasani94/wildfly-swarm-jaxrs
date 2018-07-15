@@ -43,6 +43,10 @@
       <artifactId>jaxrs</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>logstash</artifactId>
+    </dependency>
+    <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <version>${version.rest.assured}</version>
